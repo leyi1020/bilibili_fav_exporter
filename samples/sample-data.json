@@ -1,0 +1,311 @@
+{
+  "meta": {
+    "generator": "哔哩哔哩收藏夹导出（HTML）",
+    "version": "1.0.0",
+    "exportedAt": 1730361600,
+    "uid": 12345678,
+    "userName": "示例用户",
+    "folderCount": 3,
+    "videoCount": 11,
+    "invalidCount": 3,
+    "recoveredCount": 2,
+    "coverEmbedded": 9,
+    "embedCovers": true
+  },
+  "folders": [
+    {
+      "id": 1001,
+      "type": "fav",
+      "title": "默认收藏夹",
+      "intro": "平时收藏的视频",
+      "mediaCount": 6,
+      "link": "https://space.bilibili.com/12345678/favlist?fid=1001",
+      "videos": [
+        {
+          "aid": 2,
+          "bvid": "BV1xx411c7mD",
+          "title": "【4K 60帧】这是一支画质很好的示例视频",
+          "cover": "",
+          "coverData": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22300%22%3E%3Crect%20width%3D%22480%22%20height%3D%22300%22%20fill%3D%22%235b8def%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22150%22%20font-size%3D%2228%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3E4K%20%E7%A4%BA%E4%BE%8B%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22190%22%20font-size%3D%2216%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.75%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3ESAMPLE%20COVER%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 3725,
+          "pubtime": 1600000000,
+          "favtime": 1700000000,
+          "upper": {
+            "mid": 10001,
+            "name": "影视飓风"
+          },
+          "stats": {
+            "play": 12345,
+            "danmaku": 67,
+            "collect": 890
+          },
+          "invalid": false,
+          "recovered": false,
+          "source": ""
+        },
+        {
+          "aid": 170002,
+          "bvid": "BV17x411w7KD",
+          "title": "这是一支标题非常非常长的视频，用来测试卡片标题在两行之后是否正确截断，以及是否会撑破整个网格布局",
+          "cover": "",
+          "coverData": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22300%22%3E%3Crect%20width%3D%22480%22%20height%3D%22300%22%20fill%3D%22%237c5cff%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22150%22%20font-size%3D%2228%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3E%E9%95%BF%E6%A0%87%E9%A2%98%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22190%22%20font-size%3D%2216%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.75%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3ESAMPLE%20COVER%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 754,
+          "pubtime": 1600000000,
+          "favtime": 1700000000,
+          "upper": {
+            "mid": 10002,
+            "name": "一个名字也很长的UP主名称测试"
+          },
+          "stats": {
+            "play": 12345,
+            "danmaku": 67,
+            "collect": 890
+          },
+          "invalid": false,
+          "recovered": false,
+          "source": ""
+        },
+        {
+          "aid": 170003,
+          "bvid": "BV17x411w7KE",
+          "title": "<script>alert(1)</script> 标题里的特殊字符 & \"引号\" 与 '单引号'",
+          "cover": "",
+          "coverData": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22300%22%3E%3Crect%20width%3D%22480%22%20height%3D%22300%22%20fill%3D%22%23f97316%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22150%22%20font-size%3D%2228%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3E%E8%BD%AC%E4%B9%89%E6%B5%8B%E8%AF%95%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22190%22%20font-size%3D%2216%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.75%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3ESAMPLE%20COVER%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 61,
+          "pubtime": 1600000000,
+          "favtime": 1700000000,
+          "upper": {
+            "mid": 10003,
+            "name": "A&B <工作室>"
+          },
+          "stats": {
+            "play": 12345,
+            "danmaku": 67,
+            "collect": 890
+          },
+          "invalid": false,
+          "recovered": false,
+          "source": ""
+        },
+        {
+          "aid": 170004,
+          "bvid": "BV17x411w7KF",
+          "title": "🎉 带 emoji 的标题 🚀 收藏夹导出测试",
+          "cover": "",
+          "coverData": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22300%22%3E%3Crect%20width%3D%22480%22%20height%3D%22300%22%20fill%3D%22%2314b8a6%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22150%22%20font-size%3D%2228%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3EEmoji%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22190%22%20font-size%3D%2216%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.75%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3ESAMPLE%20COVER%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 45,
+          "pubtime": 1600000000,
+          "favtime": 1700000000,
+          "upper": {
+            "mid": 10004,
+            "name": "表情包UP"
+          },
+          "stats": {
+            "play": 12345,
+            "danmaku": 67,
+            "collect": 890
+          },
+          "invalid": false,
+          "recovered": false,
+          "source": ""
+        },
+        {
+          "aid": 170005,
+          "bvid": "BV17x411w7KG",
+          "title": "没有封面的视频（应显示暂无封面占位）",
+          "cover": "",
+          "coverData": "",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 30,
+          "pubtime": 1600000000,
+          "favtime": 1700000000,
+          "upper": {
+            "mid": 10005,
+            "name": "未知封面UP"
+          },
+          "stats": {
+            "play": 12345,
+            "danmaku": 67,
+            "collect": 890
+          },
+          "invalid": false,
+          "recovered": false,
+          "source": ""
+        },
+        {
+          "aid": 170006,
+          "bvid": "BV17x411w7KH",
+          "title": "刚刚收藏的短视频",
+          "cover": "",
+          "coverData": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22300%22%3E%3Crect%20width%3D%22480%22%20height%3D%22300%22%20fill%3D%22%23e11d48%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22150%22%20font-size%3D%2228%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3E%E7%9F%AD%E8%A7%86%E9%A2%91%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22190%22%20font-size%3D%2216%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.75%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3ESAMPLE%20COVER%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 12,
+          "pubtime": 1600000000,
+          "favtime": 1730000000,
+          "upper": {
+            "mid": 10006,
+            "name": "生活区UP"
+          },
+          "stats": {
+            "play": 12345,
+            "danmaku": 67,
+            "collect": 890
+          },
+          "invalid": false,
+          "recovered": false,
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 1002,
+      "type": "fav",
+      "title": "失效视频测试",
+      "intro": "用于验证归档还原效果",
+      "mediaCount": 3,
+      "link": "https://space.bilibili.com/12345678/favlist?fid=1002",
+      "videos": [
+        {
+          "aid": 3,
+          "bvid": "BV1xx411c7mS",
+          "title": "【电影】后会无期",
+          "cover": "https://i0.hdslb.com/bfs/archive/9b53b363e0f6c16b3a73aa38f8a8c062eaff6187.jpg",
+          "coverData": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22300%22%3E%3Crect%20width%3D%22480%22%20height%3D%22300%22%20fill%3D%22%23b45309%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22150%22%20font-size%3D%2228%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3Ebiliplus%20%E5%BD%92%E6%A1%A3%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22190%22%20font-size%3D%2216%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.75%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3ESAMPLE%20COVER%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "coverRaw": "https://img.biliplus.com/bfs/archive/9b53b363e0f6c16b3a73aa38f8a8c062eaff6187.jpg",
+          "intro": "这是示例简介。",
+          "duration": 0,
+          "pubtime": 1295572149,
+          "favtime": 1700000001,
+          "upper": {
+            "mid": 4694544,
+            "name": "AR·M⑨R"
+          },
+          "stats": {
+            "play": 123126,
+            "danmaku": 0,
+            "collect": 82
+          },
+          "invalid": true,
+          "recovered": true,
+          "source": "biliplus"
+        },
+        {
+          "aid": 1700010,
+          "bvid": "BV17x411w7KJ",
+          "title": "某个被删除的舞蹈视频（jijidown 还原）",
+          "cover": "",
+          "coverData": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22300%22%3E%3Crect%20width%3D%22480%22%20height%3D%22300%22%20fill%3D%22%23047857%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22150%22%20font-size%3D%2228%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3Ejijidown%20%E5%BD%92%E6%A1%A3%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22190%22%20font-size%3D%2216%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.75%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3ESAMPLE%20COVER%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 193,
+          "pubtime": 1500000000,
+          "favtime": 1700000002,
+          "upper": {
+            "mid": 55001,
+            "name": "舞蹈区UP"
+          },
+          "stats": {
+            "play": 12345,
+            "danmaku": 67,
+            "collect": 890
+          },
+          "invalid": true,
+          "recovered": true,
+          "source": "jijidown"
+        },
+        {
+          "aid": 999999,
+          "bvid": "BV1xx411c7mT",
+          "title": "已失效视频（av999999）",
+          "cover": "",
+          "coverData": "",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 0,
+          "pubtime": 0,
+          "favtime": 1700000003,
+          "upper": {
+            "mid": 0,
+            "name": ""
+          },
+          "stats": {
+            "play": 0,
+            "danmaku": 0,
+            "collect": 0
+          },
+          "invalid": true,
+          "recovered": false,
+          "source": ""
+        }
+      ]
+    },
+    {
+      "id": 2001,
+      "type": "col",
+      "title": "某 UP 的系列合集",
+      "intro": "合集简介",
+      "mediaCount": 2,
+      "link": "https://space.bilibili.com/42/lists/2001?type=season",
+      "videos": [
+        {
+          "aid": 2000001,
+          "bvid": "BV1xx411c7mA",
+          "title": "合集第 1 集：开场介绍",
+          "cover": "",
+          "coverData": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22300%22%3E%3Crect%20width%3D%22480%22%20height%3D%22300%22%20fill%3D%22%230284c7%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22150%22%20font-size%3D%2228%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3E%E5%90%88%E9%9B%86%20P1%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22190%22%20font-size%3D%2216%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.75%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3ESAMPLE%20COVER%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 300,
+          "pubtime": 1600000000,
+          "favtime": 1700000000,
+          "upper": {
+            "mid": 42,
+            "name": "示例UP主"
+          },
+          "stats": {
+            "play": 12345,
+            "danmaku": 67,
+            "collect": 890
+          },
+          "invalid": false,
+          "recovered": false,
+          "source": ""
+        },
+        {
+          "aid": 2000002,
+          "bvid": "BV1xx411c7mB",
+          "title": "合集第 2 集：深入实现",
+          "cover": "",
+          "coverData": "data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22480%22%20height%3D%22300%22%3E%3Crect%20width%3D%22480%22%20height%3D%22300%22%20fill%3D%22%230f766e%22%2F%3E%3Ctext%20x%3D%22240%22%20y%3D%22150%22%20font-size%3D%2228%22%20fill%3D%22%23ffffff%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3E%E5%90%88%E9%9B%86%20P2%3C%2Ftext%3E%3Ctext%20x%3D%22240%22%20y%3D%22190%22%20font-size%3D%2216%22%20fill%3D%22%23ffffff%22%20opacity%3D%220.75%22%20text-anchor%3D%22middle%22%20font-family%3D%22sans-serif%22%3ESAMPLE%20COVER%3C%2Ftext%3E%3C%2Fsvg%3E",
+          "coverRaw": "",
+          "intro": "这是示例简介。",
+          "duration": 620,
+          "pubtime": 1600000000,
+          "favtime": 1700000000,
+          "upper": {
+            "mid": 42,
+            "name": "示例UP主"
+          },
+          "stats": {
+            "play": 12345,
+            "danmaku": 67,
+            "collect": 890
+          },
+          "invalid": false,
+          "recovered": false,
+          "source": ""
+        }
+      ]
+    }
+  ]
+}

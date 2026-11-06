@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>哔哩哔哩收藏夹导出</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --text: #18191c;
+      --text-soft: #3d4046;
+      --muted: #70757e;
+      --border: #e3e6ec;
+      --surface-2: #f4f5f8;
+      --primary: #fb7299;
+      --primary-strong: #d94d78;
+      --primary-soft: #ffe9f0;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --bg: #17181d;
+        --text: #eceef2;
+        --text-soft: #c6cad2;
+        --muted: #9aa1ad;
+        --border: #2a2d34;
+        --surface-2: #1f2126;
+        --primary: #fb7299;
+        --primary-strong: #ff8aac;
+        --primary-soft: rgba(251, 114, 153, 0.16);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      width: 344px;
+      margin: 0;
+      padding: 16px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    [hidden] { display: none !important; }
+    .head { display: flex; align-items: center; gap: 11px; }
+    .logo {
+      flex: none; width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 11px; color: #fff; font-size: 19px; font-weight: 800;
+      background: linear-gradient(140deg, #ff9ab8, #fb7299 55%, #e75b84);
+      box-shadow: 0 6px 14px rgba(251, 114, 153, 0.3);
+    }
+    h1 { margin: 0; font-size: 15px; font-weight: 700; }
+    .sub { margin: 1px 0 0; color: var(--muted); font-size: 11.5px; }
+    .status {
+      display: flex; align-items: center; gap: 9px; margin: 14px 0 12px;
+      padding: 9px 11px; border: 1px solid var(--border); border-radius: 10px;
+      background: var(--surface-2); color: var(--text-soft); font-size: 12px;
+      min-height: 40px;
+    }
+    .status img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; flex: none; }
+    .status .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex: none; }
+    .status.is-online .dot { background: #22a06b; }
+    .status.is-offline .dot { background: #d97706; }
+    .status span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      width: 100%; padding: 10px 14px; border: 1px solid var(--border);
+      border-radius: 10px; background: transparent; color: var(--text-soft);
+      font-size: 13px; cursor: pointer; transition: background 0.15s, border-color 0.15s;
+    }
+    .btn:hover { background: var(--surface-2); }
+    .btn + .btn { margin-top: 8px; }
+    .btn.primary {
+      border-color: transparent; background: var(--primary); color: #fff;
+      font-weight: 600; box-shadow: 0 6px 16px rgba(251, 114, 153, 0.28);
+    }
+    .btn.primary:hover { background: var(--primary-strong); }
+    .btn.context {
+      border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+      background: var(--primary-soft); color: var(--primary-strong);
+    }
+    .tips { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--border); }
+    .tips p { margin: 4px 0; color: var(--muted); font-size: 11.5px; }
+    .tips b { color: var(--text-soft); }
+    .foot { margin-top: 12px; color: var(--muted); font-size: 10.5px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="head">
+    <span class="logo" aria-hidden="true">B</span>
+    <div>
+      <h1>收藏夹导出</h1>
+      <p class="sub">抓取收藏夹 → 生成离线 HTML</p>
+    </div>
+  </div>
+
+  <div id="status" class="status">
+    <span class="dot" aria-hidden="true"></span>
+    <span id="statusText">正在检测登录状态…</span>
+  </div>
+
+  <button id="contextBtn" class="btn context" hidden>导出当前收藏夹</button>
+  <button id="openBtn" class="btn primary">打开导出面板</button>
+
+  <div class="tips">
+    <p>① 选择账号与收藏夹，可多选</p>
+    <p>② 失效视频用 <b>biliplus / jijidown</b> 归档补全封面</p>
+    <p>③ 生成单个静态 HTML，离线可看</p>
+  </div>
+
+  <p class="foot" id="version"></p>
+
+  <script src="js/utils.js"></script>
+  <script src="js/popup.js"></script>
+</body>
+</html>

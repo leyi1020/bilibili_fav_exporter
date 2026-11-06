@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "哔哩哔哩收藏夹导出（HTML）",
+  "version": "1.1.0",
+  "description": "抓取 B 站收藏夹 / 合集，导出为可离线浏览的 HTML；支持还原失效视频，并可按抓取记录跳过已导出视频。",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://api.bilibili.com/*",
+    "*://*.bilibili.com/*",
+    "*://*.hdslb.com/*",
+    "https://www.biliplus.com/*",
+    "https://www.jijidown.com/*"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "哔哩哔哩收藏夹导出",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}

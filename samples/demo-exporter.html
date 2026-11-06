@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>导出 B 站收藏夹 · HTML</title>
+  <link rel="stylesheet" href="../css/exporter.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-brand">
+      <span class="app-logo" aria-hidden="true">B</span>
+      <div class="app-brand-text">
+        <h1>哔哩哔哩收藏夹导出</h1>
+        <p>抓取收藏夹与合集，生成可离线浏览的 HTML</p>
+      </div>
+    </div>
+    <div class="app-header-actions">
+      <span class="account" id="accountChip" hidden>
+        <img id="accountAvatar" class="account-avatar" alt="">
+        <span id="accountName"></span>
+      </span>
+      <button type="button" id="toggleTheme" class="icon-btn" title="切换亮色 / 暗色主题" aria-label="切换主题">☾</button>
+    </div>
+  </header>
+
+  <main class="app">
+    <section class="panel" id="accountPanel">
+      <div class="panel-head">
+        <div>
+          <h2><span class="step">1</span> 选择账号</h2>
+          <p>默认使用当前登录账号。也可以填入任意用户的 UID，导出其公开收藏夹。</p>
+        </div>
+        <button type="button" id="useMeBtn" class="btn btn-ghost" hidden>使用当前账号</button>
+      </div>
+      <div class="field-row">
+        <label class="field">
+          <span class="field-label">用户 UID</span>
+          <input id="uidInput" type="text" inputmode="numeric" placeholder="例如 12345678" autocomplete="off" spellcheck="false">
+        </label>
+        <button type="button" id="loadBtn" class="btn btn-primary">加载收藏夹</button>
+      </div>
+      <p id="accountHint" class="hint">正在获取登录状态…</p>
+    </section>
+
+    <section class="panel" id="folderPanel">
+      <div class="panel-head">
+        <div>
+          <h2><span class="step">2</span> 选择收藏夹</h2>
+          <p>支持多选。自建收藏夹与订阅合集会分别加载。</p>
+        </div>
+        <div class="panel-actions">
+          <button type="button" id="selectAllBtn" class="btn btn-ghost">全选当前列表</button>
+          <button type="button" id="clearAllBtn" class="btn btn-ghost">清空选择</button>
+        </div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="收藏夹类型">
+        <button type="button" class="tab is-active" data-tab="fav" role="tab" aria-selected="true">
+          自建收藏夹 <span id="favCount" class="tab-count">0</span>
+        </button>
+        <button type="button" class="tab" data-tab="col" role="tab" aria-selected="false">
+          订阅合集 <span id="colCount" class="tab-count">0</span>
+        </button>
+      </div>
+      <div class="folder-tools">
+        <input id="folderSearch" type="search" placeholder="筛选收藏夹名称…" autocomplete="off" aria-label="筛选收藏夹">
+      </div>
+      <div id="folderList" class="folder-list">
+        <div class="placeholder">
+          <span class="placeholder-icon" aria-hidden="true">★</span>
+          <p>输入 UID 并点击「加载收藏夹」</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="optionsPanel">
+      <div class="panel-head">
+        <div>
+          <h2><span class="step">3</span> 导出选项</h2>
+          <p>失效视频会依次尝试分 P 标题、biliplus 归档与 jijidown 归档。</p>
+        </div>
+      </div>
+      <div class="options">
+        <label class="option">
+          <input type="checkbox" id="optSkip" checked>
+          <span class="option-body">
+            <span class="option-title">跳过已抓取的视频</span>
+            <span class="option-desc">按「收藏夹名称 + BV 号」匹配抓取记录，命中的视频不再重复导出；关闭后导出全部视频。</span>
+          </span>
+        </label>
+        <label class="option">
+          <input type="checkbox" id="optEmbed" checked>
+          <span class="option-body">
+            <span class="option-title">把封面嵌入 HTML</span>
+            <span class="option-desc">离线也能看到封面，代价是文件变大（每张约 15–40 KB）。</span>
+          </span>
+        </label>
+        <label class="option">
+          <input type="checkbox" id="optRecover" checked>
+          <span class="option-body">
+            <span class="option-title">还原失效视频信息</span>
+            <span class="option-desc">通过 biliplus / jijidown 公开归档补全封面、标题与 UP 主，只发送 av 号。</span>
+          </span>
+        </label>
+        <label class="option">
+          <input type="checkbox" id="optJson">
+          <span class="option-body">
+            <span class="option-title">同时保存 JSON 备份</span>
+            <span class="option-desc">除 HTML 外再下载一份原始数据，便于以后重新生成。</span>
+          </span>
+        </label>
+        <label class="option option--inline">
+          <span class="option-body">
+            <span class="option-title">封面尺寸</span>
+            <span class="option-desc">嵌入封面时使用 B 站图床的缩放参数。</span>
+          </span>
+          <select id="optCoverWidth" aria-label="封面尺寸">
+            <option value="320">小（320px）</option>
+            <option value="480" selected>中（480px）</option>
+            <option value="640">大（640px）</option>
+          </select>
+        </label>
+        <label class="option option--inline">
+          <span class="option-body">
+            <span class="option-title">请求速度</span>
+            <span class="option-desc">越慢越不容易触发 B 站风控。</span>
+          </span>
+          <select id="optSpeed" aria-label="请求速度">
+            <option value="300">快速（0.3 秒）</option>
+            <option value="600" selected>标准（0.6 秒）</option>
+            <option value="1000">保守（1 秒）</option>
+          </select>
+        </label>
+      </div>
+      <div class="options-foot">
+        <button type="button" id="clearCacheBtn" class="link-btn">清除失效视频查询缓存</button>
+        <span class="hint-inline">缓存最多保留 30 天，只存放在浏览器本地。</span>
+      </div>
+    </section>
+
+    <section class="panel history-panel" id="historyPanel">
+      <div class="panel-head">
+        <div>
+          <h2>抓取记录</h2>
+          <p>按收藏夹名称、BV 号与视频名称记录已导出的视频，用于下次跳过。只保存在本机，可导出 JSON 备份或迁移。</p>
+        </div>
+        <span class="history-count" id="historyCount">0 个视频</span>
+      </div>
+      <div class="history-actions">
+        <button type="button" id="exportHistoryBtn" class="btn">导出记录 JSON</button>
+        <button type="button" id="importHistoryBtn" class="btn">导入记录</button>
+        <button type="button" id="clearHistoryBtn" class="btn btn-ghost">清空记录</button>
+        <input id="historyFileInput" type="file" accept=".json,application/json" hidden>
+      </div>
+      <p class="hint" id="historyHint">还没有记录。每次导出成功后会自动记录收藏夹名称、BV 号与视频名称。</p>
+    </section>
+
+    <section class="panel progress-panel" id="progressPanel" hidden>
+      <div class="progress-head">
+        <div>
+          <h2>正在导出</h2>
+          <p id="progressPhase">准备中…</p>
+        </div>
+        <span id="progressPercent" class="progress-percent">0%</span>
+      </div>
+      <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      <div class="progress-stats" id="progressStats"></div>
+      <pre id="log" class="log" aria-live="polite"></pre>
+    </section>
+
+    <section class="panel result-panel" id="resultPanel" hidden>
+      <div class="result-head">
+        <div>
+          <h2>导出完成</h2>
+          <p id="resultSummary"></p>
+        </div>
+        <span class="result-icon" aria-hidden="true">✓</span>
+      </div>
+      <div class="result-actions">
+        <button type="button" id="downloadBtn" class="btn btn-primary">下载 HTML</button>
+        <button type="button" id="jsonBtn" class="btn">下载 JSON 备份</button>
+      </div>
+      <dl class="result-stats" id="resultStats"></dl>
+    </section>
+
+    <section class="panel notes">
+      <h2>使用说明</h2>
+      <ul>
+        <li>读取私密收藏夹需要先在浏览器中登录 <strong>bilibili.com</strong>；公开收藏夹只需填写 UID。</li>
+        <li>失效视频的信息来自 biliplus、jijidown 的公开归档，查询结果会缓存在本机；归档没有收录的视频会显示「已失效」占位封面。</li>
+        <li>导出的 HTML 是单个静态文件，样式与数据全部内联、不含脚本，可以直接分享或离线打开。</li>
+        <li>所有数据只在本地处理，扩展不会上传任何信息。</li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="actionbar">
+    <div class="actionbar-info">
+      <span id="selectionInfo">未选择收藏夹</span>
+      <span id="estimateInfo" class="muted"></span>
+    </div>
+    <div class="actionbar-buttons">
+      <button type="button" id="abortBtn" class="btn btn-danger" hidden>停止导出</button>
+      <button type="button" id="startBtn" class="btn btn-primary btn-lg" disabled>开始导出 HTML</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  
+<script>
+/* 仅用于离线演示 / 测试的 chrome API 桩 */
+window.chrome = (function () {
+  var store = {};
+  var folders = {
+    fav: [
+      { id: 1001, title: '默认收藏夹', media_count: 128, cover: '', intro: '平时收藏的视频', ctime: 1600000000, mtime: 1700000000 },
+      { id: 1002, title: '学习 / 算法与数据结构', media_count: 32, cover: '', intro: '课程与题解', ctime: 1600000000, mtime: 1700000000 },
+      { id: 1003, title: '音乐', media_count: 7, cover: '', intro: '', ctime: 1600000000, mtime: 1700000000 },
+      { id: 1004, title: '空收藏夹', media_count: 0, cover: '', intro: '', ctime: 1600000000, mtime: 1700000000 }
+    ],
+    col: [
+      { id: 2001, title: '某 UP 的系列合集', media_count: 12, cover: '', intro: '合集简介', upper: { mid: 42, name: '示例UP' }, link: 'https://space.bilibili.com/42/lists/2001?type=season' },
+      { id: 2002, title: '另一个合集', media_count: 5, cover: '', intro: '', upper: { mid: 43, name: '另一个UP' }, link: '' }
+    ]
+  };
+
+  function reply(message, callback) {
+    setTimeout(function () {
+      var response = { ok: false, code: -1, message: '演示桩未实现：' + (message && message.type) };
+      if (message && message.type === 'fav-api-request') {
+        var params = message.params || {};
+        if (message.path === '/x/web-interface/nav') {
+          response = { ok: true, code: 0, data: { isLogin: true, mid: 12345678, uname: '示例用户', face: '' } };
+        } else if (message.path === '/x/v3/fav/folder/created/list-all') {
+          response = { ok: true, code: 0, data: { count: folders.fav.length, list: folders.fav } };
+        } else if (message.path === '/x/v3/fav/folder/collected/list') {
+          response = {
+            ok: true,
+            code: 0,
+            data: { count: folders.col.length, list: params.pn === 1 ? folders.col : [], has_more: false }
+          };
+        }
+      } else if (message && message.type === 'fav-set-interval') {
+        response = { ok: true };
+      }
+      callback(response);
+    }, 30);
+  }
+
+  return {
+    runtime: {
+      id: 'demo',
+      lastError: null,
+      getURL: function (relative) {
+        return new URL('../' + relative, location.href).href;
+      },
+      getManifest: function () {
+        return { version: '1.0.0-demo' };
+      },
+      sendMessage: reply
+    },
+    storage: {
+      local: {
+        get: function (keys, callback) {
+          var out = {};
+          if (keys === null || keys === undefined) {
+            out = Object.assign({}, store);
+          } else if (typeof keys === 'string') {
+            if (keys in store) { out[keys] = store[keys]; }
+          } else if (Array.isArray(keys)) {
+            keys.forEach(function (key) { if (key in store) { out[key] = store[key]; } });
+          }
+          setTimeout(function () { callback(out); }, 0);
+        },
+        set: function (items, callback) {
+          Object.assign(store, items || {});
+          if (callback) { setTimeout(callback, 0); }
+        },
+        remove: function (keys, callback) {
+          (Array.isArray(keys) ? keys : [keys]).forEach(function (key) { delete store[key]; });
+          if (callback) { setTimeout(callback, 0); }
+        }
+      }
+    },
+    tabs: {
+      create: function () {},
+      query: function () { return Promise.resolve([]); }
+    }
+  };
+})();
+</script>
+  <script src="../js/utils.js"></script>
+  <script src="../js/page-api.js"></script>
+  <script src="../js/invalid-recovery.js"></script>
+  <script src="../js/history.js"></script>
+  <script src="../js/export-html.js"></script>
+  <script src="../js/exporter.js"></script>
+</body>
+</html>
